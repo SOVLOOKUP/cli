@@ -234,7 +234,7 @@ export class BuildPlugin extends BasePlugin {
     let tsConfigResult;
     if (typeof tsConfig === 'string') {
       try {
-        tsConfigResult = JSON.parse(tsConfig);
+        tsConfigResult = JSON.parse(readFileSync(tsConfig,'utf-8'));
       } catch (e) {
         console.log('[midway-bin] tsConfig should be JSON string or Object');
         throw e;
